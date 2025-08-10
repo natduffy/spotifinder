@@ -24,7 +24,7 @@ A modern web application that helps users discover and explore music genres from
 ## Technical Details
 
 - **Frontend**: Pure HTML, CSS, and JavaScript (no frameworks)
-- **Data**: 1,383 unique music genres with detailed descriptions
+- **Data**: 1,384 unique music genres with detailed descriptions
 - **Styling**: Modern CSS with gradients, backdrop filters, and smooth animations
 - **Icons**: Font Awesome for UI elements and Spotify branding
 - **Fonts**: Inter font family for clean typography
