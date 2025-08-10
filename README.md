@@ -4,7 +4,7 @@ A modern web application that helps users discover and explore music genres from
 
 ## Features
 
-- **Random Genre Discovery**: Displays 12 random genres at a time from a collection of 1,383 music genres
+- **Random Genre Discovery**: Displays 12 random genres at a time from a collection of 1,384 music genres
 - **Detailed Descriptions**: Each genre includes a comprehensive description explaining its characteristics, origins, and musical elements
 - **Spotify Integration**: Click any genre card to instantly search for that genre on Spotify
 - **Refresh Functionality**: Use the "Refresh Genres" button to get a new random selection of genres
