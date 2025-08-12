@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotifinder</title>
+    <title>Spotifinder - Search</title>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://natduffy.com/spotifinder">
-    <meta property="og:title" content="Spotifinder">
-    <meta property="og:description" content="Explore 1,384 music genres.">
+    <meta property="og:title" content="Spotifinder - Search">
+    <meta property="og:description" content="Search and explore 1,384 music genres in real-time.">
     <meta property="og:image" content="https://natduffy.com/spotifinder/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Spotifinder - Music Genre Discovery App">
+    <meta property="og:image:alt" content="Spotifinder - Music Genre Discovery App with Search">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://natduffy.com/spotifinder">
-    <meta property="twitter:title" content="Spotifinder">
-    <meta property="twitter:description" content="Explore 1,384 music genres.">
+    <meta property="twitter:title" content="Spotifinder - Search">
+    <meta property="twitter:description" content="Search and explore 1,384 music genres in real-time.">
     <meta property="twitter:image" content="https://natduffy.com/spotifinder/og-image.png">
-    <meta property="twitter:image:alt" content="Spotifinder - Music Genre Discovery App">
+    <meta property="twitter:image:alt" content="Spotifinder - Music Genre Discovery App with Search">
     
     <!-- Additional Meta Tags -->
-    <meta name="description" content="Discover 1,384 music genres.">
-    <meta name="keywords" content="Spotify, music genres, music discovery, playlist, music app, genre finder">
+    <meta name="description" content="Search and discover 1,384 music genres in real-time. Find your next favorite music style with instant predictive search.">
+    <meta name="keywords" content="Spotify, music genres, music discovery, playlist, music app, genre finder, search, predictive search">
     <meta name="author" content="Spotifinder">
     <meta name="robots" content="index, follow">
     
@@ -47,10 +47,29 @@
         </header>
 
         <main class="main">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Search genres... (e.g., 'african', 'rock', 'jazz')"
+                        autocomplete="off"
+                    >
+                    <button id="clearSearch" class="clear-search-btn" style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="search-stats">
+                    <span id="searchResultsCount">0</span> results
+                </div>
+            </div>
+
             <div class="controls">
                 <button id="remixBtn" class="remix-btn">
                     <i class="fas fa-sync-alt"></i>
-                    Refresh Genres
+                    Show Random Genres
                 </button>
                 <div class="genre-count">
                     Showing <span id="genreCount">12</span> of <span id="totalGenres">1384</span> genres
@@ -63,23 +82,23 @@
 
             <div class="loading" id="loading">
                 <div class="spinner"></div>
-                <p>Mixing up some genres...</p>
+                <p>Searching genres...</p>
             </div>
 
             <div class="mobile-refresh">
                 <button id="mobileRemixBtn" class="remix-btn">
                     <i class="fas fa-sync-alt"></i>
-                    Refresh Genres
+                    Show Random Genres
                 </button>
             </div>
         </main>
 
         <footer class="footer">
-            <p><a href="index-search.html" class="footer-link">search mode</a></p>
+            <p><a href="index.html" class="footer-link">random mode</a></p>
         </footer>
     </div>
 
     <script src="genres_data.js"></script>
-    <script src="script.js"></script>
+    <script src="script-search.js"></script>
 </body>
 </html> 
