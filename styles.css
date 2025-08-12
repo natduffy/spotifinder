@@ -399,19 +399,37 @@ body {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     font-family: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
 }
 
 .search-input::placeholder {
     color: rgba(255, 255, 255, 0.6);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
+}
+
+.search-input::selection {
+    background: rgba(29, 185, 84, 0.3);
+    color: white;
+}
+
+.search-input::-moz-selection {
+    background: rgba(29, 185, 84, 0.3);
+    color: white;
 }
 
 .search-input:focus {
     outline: none;
     border-color: #1DB954;
     background: rgba(255, 255, 255, 0.15);
+    -webkit-background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 20px rgba(29, 185, 84, 0.3);
+    -webkit-box-shadow: 0 0 20px rgba(29, 185, 84, 0.3);
 }
 
 .search-icon {
@@ -525,6 +543,15 @@ body {
     text-align: center;
 }
 
+/* Chrome-specific fixes for search input */
+.search-input::-webkit-search-decoration,
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-results-button,
+.search-input::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 /* Responsive Search Styles */
 @media (max-width: 768px) {
     .search-container {
@@ -534,6 +561,9 @@ body {
     .search-input {
         padding: 12px 45px 12px 45px;
         font-size: 1rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
     
     .search-icon {
@@ -557,6 +587,9 @@ body {
     .search-input {
         padding: 10px 40px 10px 40px;
         font-size: 0.95rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
     
     .search-icon {
