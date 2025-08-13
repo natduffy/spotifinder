@@ -38,6 +38,15 @@ class GenreMixer {
     displayRandomGenres() {
         this.showLoading(true);
         
+        // Track refresh button click
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'refresh_genres', {
+                event_category: 'user_interaction',
+                event_label: 'random_mode',
+                value: 1
+            });
+        }
+        
         // Clear current display
         const grid = document.getElementById('genreGrid');
         if (grid) {
@@ -110,6 +119,16 @@ class GenreMixer {
     }
 
     openSpotifySearch(genre) {
+        // Track genre click
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'genre_click', {
+                event_category: 'user_interaction',
+                event_label: genre,
+                value: 1,
+                custom_parameter_1: 'random_mode'
+            });
+        }
+        
         const searchTerm = encodeURIComponent(genre);
         const spotifyUrl = `https://open.spotify.com/search/${searchTerm}`;
         window.open(spotifyUrl, '_blank');

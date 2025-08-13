@@ -29,6 +29,28 @@
     <meta name="author" content="Spotifinder">
     <meta name="robots" content="index, follow">
     
+    <!-- Analytics Configuration -->
+    <script src="analytics-config.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVCM91EMTM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', ANALYTICS_CONFIG.GA4_ID, {
+            page_title: 'Spotifinder - Random Mode',
+            page_location: window.location.href,
+            custom_map: {
+                'custom_parameter_1': 'page_mode',
+                'custom_parameter_2': 'user_interaction'
+            }
+        });
+        
+        // Track page load using helper function
+        trackPageView('Spotifinder - Random Mode', 'random');
+    </script>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">

@@ -76,6 +76,16 @@ class GenreMixer {
 
         this.isSearchMode = true;
         
+        // Track search query
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'search_query', {
+                event_category: 'search_behavior',
+                event_label: this.searchQuery,
+                value: this.searchQuery.length,
+                custom_parameter_1: 'search_mode'
+            });
+        }
+        
         // Filter genres based on search query
         this.searchResults = this.genres.filter(genre => 
             genre.toLowerCase().includes(this.searchQuery)
@@ -236,6 +246,15 @@ class GenreMixer {
     }
 
     showRandomGenres() {
+        // Track random genres button click in search mode
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'show_random_genres', {
+                event_category: 'user_interaction',
+                event_label: 'search_mode',
+                value: 1
+            });
+        }
+        
         this.isSearchMode = false;
         this.displayRandomGenres();
     }
@@ -325,6 +344,16 @@ class GenreMixer {
     }
 
     openSpotifySearch(genre) {
+        // Track genre click in search mode
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'genre_click', {
+                event_category: 'user_interaction',
+                event_label: genre,
+                value: 1,
+                custom_parameter_1: this.isSearchMode ? 'search_mode' : 'random_mode'
+            });
+        }
+        
         const searchTerm = encodeURIComponent(genre);
         const spotifyUrl = `https://open.spotify.com/search/${searchTerm}`;
         window.open(spotifyUrl, '_blank');
