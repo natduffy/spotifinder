@@ -67,7 +67,14 @@ class GenreMixer {
     }
 
     performSearch(query) {
-        this.searchQuery = query.trim().toLowerCase();
+        const trimmedQuery = query.trim().toLowerCase();
+        
+        // Prevent duplicate searches with the same query
+        if (trimmedQuery === this.searchQuery) {
+            return;
+        }
+        
+        this.searchQuery = trimmedQuery;
         
         if (this.searchQuery === '') {
             this.clearSearch();
@@ -114,7 +121,7 @@ class GenreMixer {
     displaySearchResults() {
         this.showLoading(true);
         
-        // Clear current display
+        // Clear current display completely
         const grid = document.getElementById('genreGrid');
         if (grid) {
             grid.innerHTML = '';
@@ -126,16 +133,19 @@ class GenreMixer {
             countElement.textContent = Math.min(this.searchResults.length, this.genresPerPage);
         }
 
-        // Create and display genre cards
-        setTimeout(() => {
-            this.createSearchResultCards();
-            this.showLoading(false);
-        }, 300);
+        // Create and display genre cards immediately (no delay needed)
+        this.createSearchResultCards();
+        this.showLoading(false);
     }
 
     createSearchResultCards() {
         const grid = document.getElementById('genreGrid');
         if (!grid) return;
+
+        // Ensure grid is empty before adding new cards
+        if (grid.children.length > 0) {
+            grid.innerHTML = '';
+        }
 
         // Show first page of results
         const displayResults = this.searchResults.slice(0, this.genresPerPage);
